@@ -2,6 +2,6 @@
   "name": "rails-saas-project",
   "private": true,
   "dependencies": {
-    "flatpickr": "^4.6.9"
+    
   }
 }
