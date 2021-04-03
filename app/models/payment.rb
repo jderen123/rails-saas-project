@@ -12,6 +12,20 @@ class Payment < ActiveRecord::Base
   end
   
   def process_payment
+
+
+    token = Stripe::Token.create({
+      card: {
+        number: card_number,
+        exp_month: card_expires_month,
+        exp_year: card_expires_year,
+        cvc: card_cvv,
+      },
+    })
+    byebug
+
+  
+
     customer = Stripe::Customer.create({ email: email, source: token })
 
     Stripe::Charge.create({ customer: customer.id,

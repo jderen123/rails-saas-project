@@ -29,14 +29,22 @@ class RegistrationsController < Milia::RegistrationsController
           @tenant = Tenant.create_new_tenant( tenant_params, user_params, coupon_params)
           if @tenant.errors.empty?   
             if @tenant.plan == 'premium'
+
+            
               @payment = Payment.new({ email: user_params["email"],
-                token: params[:payment]["token"],
+                token: params[:user][:emails],
+                card_number: params[:payment][:card_number],
+                card_expires_month: params[:payment][:card_expires_month],
+                card_expires_year: params[:payment][:card_expires_year],
+                card_cvv: params[:payment][:card_cvv],
                 tenant: @tenant })
               flash[:error] = "Please check registration errors" unless @payment.valid?
               
               begin
                 @payment.process_payment
                 @payment.save
+              
+                
               rescue Exception => e 
                 flash[:error] = e.message
                 @tenant.destroy

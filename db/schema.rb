@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_083953) do
+ActiveRecord::Schema.define(version: 2021_04_03_071709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,10 @@ ActiveRecord::Schema.define(version: 2021_04_02_083953) do
     t.bigint "tenant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "card_number"
+    t.string "card_cvv"
+    t.string "card_expires_year"
+    t.string "card_expires_month"
     t.index ["tenant_id"], name: "index_payments_on_tenant_id"
   end
 
