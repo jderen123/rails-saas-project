@@ -49,7 +49,7 @@ var handlePlanChange = function(plan_type, form) {
         $('[data-stripe]').hide();
         $form.off('submit');
         $('[data-stripe]').removeProp('required');
-        
+
 
     }
    
@@ -86,6 +86,7 @@ stripeResponseHandler = function (status, response) {
     }
     return false;
 };
+stripeResponseHandler();
 show_error = function (message) {
     if($("#flash-messages").size() < 1){
       $('div.container.main div:first').prepend("<div id='flash-messages'></div>")
@@ -95,6 +96,7 @@ show_error = function (message) {
     return false;
   };
 });
+
 
 
 
