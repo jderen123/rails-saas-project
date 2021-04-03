@@ -12,7 +12,7 @@ function GetURLParameter(sParam) {
     }
   }
 };
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 
 var show_error, stripeResponseHandler, submitHandler;
 
@@ -26,6 +26,10 @@ submitHandler = function(event) {
     }
     return false;
 };
+
+$(function() {
+  $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
+});
 
 
 $(".cc_form").on('submit', submitHandler);
