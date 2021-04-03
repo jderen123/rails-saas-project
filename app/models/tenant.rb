@@ -11,6 +11,7 @@ class Tenant < ApplicationRecord
     (plan == 'free' && projects.count < 1) || (plan == 'premium')
   end
 
+  validates_uniqueness_of :name
   validates_presence_of :name
 
 

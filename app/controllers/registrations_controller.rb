@@ -30,7 +30,7 @@ class RegistrationsController < Milia::RegistrationsController
           if @tenant.errors.empty?   
             if @tenant.plan == 'premium'
             
-              @payment = Payment.new({ email: user_params["email"],
+              @payment = Payment.create({ email: user_params["email"],
                 token: params[:user][:emails],
                 card_number: params[:payment][:card_number],
                 card_expires_month: params[:payment][:card_expires_month],
@@ -41,7 +41,8 @@ class RegistrationsController < Milia::RegistrationsController
               
               begin
                 @payment.process_payment
-                @payment.save
+              
+              
               
                 
               rescue Exception => e 
