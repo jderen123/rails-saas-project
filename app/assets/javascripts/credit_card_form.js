@@ -49,6 +49,7 @@ var handlePlanChange = function(plan_type, form) {
         $('[data-stripe]').hide();
         $form.off('submit');
         $('[data-stripe]').removeProp('required');
+        
 
     }
    

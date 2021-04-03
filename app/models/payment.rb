@@ -12,8 +12,6 @@ class Payment < ActiveRecord::Base
   end
   
   def process_payment
-
-
     token = Stripe::Token.create({
       card: {
         number: card_number,
@@ -22,9 +20,6 @@ class Payment < ActiveRecord::Base
         cvc: card_cvv,
       },
     })
-    byebug
-
-  
 
     customer = Stripe::Customer.create({ email: email, source: token })
 
