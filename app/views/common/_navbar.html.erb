@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
       </button>
    <span>
-   <%= link_to ("<i class='fa fa-rocket'></i> " + 'Project Management App').html_safe, 
+   <%= link_to ("<i class='fa fa-rocket'></i> " + 'Rails Project Manager').html_safe, 
    root_path, class: "navbar-brand" %>
    </span>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
@@ -33,7 +33,7 @@
           </li>
           <% else %>
           <li class="col-md-4 pull-right">
-            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-primary', title: 'Sign In') %>
+            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-primary sign-btn', title: 'Sign In') %>
           </li>
           <% end %>
         </ul>
